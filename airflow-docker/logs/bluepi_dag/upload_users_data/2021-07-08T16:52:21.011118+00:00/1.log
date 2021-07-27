@@ -1,0 +1,50 @@
+[2021-07-08 16:52:26,728] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T16:52:21.011118+00:00 [queued]>
+[2021-07-08 16:52:26,747] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T16:52:21.011118+00:00 [queued]>
+[2021-07-08 16:52:26,747] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 16:52:26,748] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 16:52:26,748] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 16:52:26,762] {taskinstance.py:1107} INFO - Executing <Task(PostgresToGCSOperator): upload_users_data> on 2021-07-08T16:52:21.011118+00:00
+[2021-07-08 16:52:26,767] {standard_task_runner.py:52} INFO - Started process 1919 to run task
+[2021-07-08 16:52:26,774] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'upload_users_data', '2021-07-08T16:52:21.011118+00:00', '--job-id', '182', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpag126jkk', '--error-file', '/tmp/tmpux5vf46n']
+[2021-07-08 16:52:26,782] {standard_task_runner.py:77} INFO - Job 182: Subtask upload_users_data
+[2021-07-08 16:52:26,833] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T16:52:21.011118+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 16:52:26,889] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=upload_users_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T16:52:21.011118+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T16:52:21.011118+00:00
+[2021-07-08 16:52:26,890] {sql_to_gcs.py:150} INFO - Executing query
+[2021-07-08 16:52:26,900] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 16:52:28,482] {sql_to_gcs.py:153} INFO - Writing local data files
+[2021-07-08 16:52:28,680] {sql_to_gcs.py:202} INFO - Current file count: 1
+[2021-07-08 16:52:29,074] {sql_to_gcs.py:164} INFO - Uploading 1 files to GCS.
+[2021-07-08 16:52:29,103] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 165, in execute
+    self._upload_to_gcs(files_to_upload)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 369, in _upload_to_gcs
+    gzip=self.gzip if tmp_file.get('file_name') != self.schema_filename else False,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 459, in upload
+    client = self.get_conn()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 151, in get_conn
+    credentials=self._get_credentials(), client_info=self.client_info, project=self.project_id
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 251, in _get_credentials
+    credentials, _ = self._get_credentials_and_project_id()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/common/hooks/base_google.py", line 237, in _get_credentials_and_project_id
+    delegates=delegates,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/utils/credentials_provider.py", line 309, in get_credentials_and_project_id
+    return _CredentialProvider(*args, **kwargs).get_credentials_and_project()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/utils/credentials_provider.py", line 219, in __init__
+    "The `keyfile_dict` and `key_path` fields are mutually exclusive. "
+airflow.exceptions.AirflowException: The `keyfile_dict` and `key_path` fields are mutually exclusive. Please provide only one value.
+[2021-07-08 16:52:29,198] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=bluepi_dag, task_id=upload_users_data, execution_date=20210708T165221, start_date=20210708T165226, end_date=20210708T165229
+[2021-07-08 16:52:29,230] {local_task_job.py:151} INFO - Task exited with return code 1

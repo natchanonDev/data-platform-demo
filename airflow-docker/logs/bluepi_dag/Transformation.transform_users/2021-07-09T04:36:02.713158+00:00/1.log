@@ -1,0 +1,33 @@
+[2021-07-09 04:36:10,500] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.Transformation.transform_users 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:10,520] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.Transformation.transform_users 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:10,521] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:10,521] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-09 04:36:10,522] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:10,542] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): Transformation.transform_users> on 2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:10,548] {standard_task_runner.py:52} INFO - Started process 9156 to run task
+[2021-07-09 04:36:10,557] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'Transformation.transform_users', '2021-07-09T04:36:02.713158+00:00', '--job-id', '337', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmp3v0nxu3_', '--error-file', '/tmp/tmpwjxlof1h']
+[2021-07-09 04:36:10,566] {standard_task_runner.py:77} INFO - Job 337: Subtask Transformation.transform_users
+[2021-07-09 04:36:10,623] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.Transformation.transform_users 2021-07-09T04:36:02.713158+00:00 [running]> on host 3cf0296804bd
+[2021-07-09 04:36:10,707] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=Transformation.transform_users
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-09T04:36:02.713158+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:10,768] {logging_mixin.py:104} INFO -                      created_at  ...                    updated_at
+0 2020-02-16 18:33:57.796066999  ... 2020-02-16 18:33:57.796066999
+1 2020-02-16 18:33:57.796066999  ... 2020-02-16 18:33:57.796066999
+
+[2 rows x 5 columns]
+[2021-07-09 04:36:10,769] {logging_mixin.py:104} INFO - created_at    datetime64[ns]
+first_name            object
+id                    object
+last_name             object
+updated_at    datetime64[ns]
+dtype: object
+[2021-07-09 04:36:10,773] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-09 04:36:10,784] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=Transformation.transform_users, execution_date=20210709T043602, start_date=20210709T043610, end_date=20210709T043610
+[2021-07-09 04:36:10,823] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-07-09 04:36:10,846] {local_task_job.py:151} INFO - Task exited with return code 0

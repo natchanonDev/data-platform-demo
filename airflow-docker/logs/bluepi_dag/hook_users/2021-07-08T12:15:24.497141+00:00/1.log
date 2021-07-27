@@ -1,0 +1,25 @@
+[2021-07-08 12:15:30,308] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.hook_users 2021-07-08T12:15:24.497141+00:00 [queued]>
+[2021-07-08 12:15:30,336] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.hook_users 2021-07-08T12:15:24.497141+00:00 [queued]>
+[2021-07-08 12:15:30,337] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 12:15:30,338] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 12:15:30,339] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 12:15:30,354] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): hook_users> on 2021-07-08T12:15:24.497141+00:00
+[2021-07-08 12:15:30,360] {standard_task_runner.py:52} INFO - Started process 14007 to run task
+[2021-07-08 12:15:30,377] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'hook_users', '2021-07-08T12:15:24.497141+00:00', '--job-id', '84', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpjxcifhqe', '--error-file', '/tmp/tmpcxslk0nv']
+[2021-07-08 12:15:30,381] {standard_task_runner.py:77} INFO - Job 84: Subtask hook_users
+[2021-07-08 12:15:30,448] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.hook_users 2021-07-08T12:15:24.497141+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 12:15:30,538] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=hook_users
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T12:15:24.497141+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T12:15:24.497141+00:00
+[2021-07-08 12:15:30,557] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 12:15:32,117] {logging_mixin.py:104} INFO - (datetime.datetime(2020, 2, 16, 18, 33, 57, 796067, tzinfo=datetime.timezone.utc), datetime.datetime(2020, 2, 16, 18, 33, 57, 796067, tzinfo=datetime.timezone.utc), '55514cf0-3026-404f-8ea3-f41b00bdf6b5', 'John', 'Henry')
+[2021-07-08 12:15:32,117] {logging_mixin.py:104} INFO - (datetime.datetime(2020, 2, 16, 18, 33, 57, 796067, tzinfo=datetime.timezone.utc), datetime.datetime(2020, 2, 16, 18, 33, 57, 796067, tzinfo=datetime.timezone.utc), 'd0e73a35-ff6a-4f64-89b4-ed2b813782a3', 'สมบูรณ์', 'รุ้งแก้ว')
+[2021-07-08 12:15:32,118] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-08 12:15:32,132] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=hook_users, execution_date=20210708T121524, start_date=20210708T121530, end_date=20210708T121532
+[2021-07-08 12:15:32,170] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-07-08 12:15:32,202] {local_task_job.py:151} INFO - Task exited with return code 0

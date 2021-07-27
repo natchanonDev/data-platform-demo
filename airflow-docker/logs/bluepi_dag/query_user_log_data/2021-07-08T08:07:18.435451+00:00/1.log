@@ -1,0 +1,29 @@
+[2021-07-08 08:07:20,265] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.query_user_log_data 2021-07-08T08:07:18.435451+00:00 [queued]>
+[2021-07-08 08:07:20,282] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.query_user_log_data 2021-07-08T08:07:18.435451+00:00 [queued]>
+[2021-07-08 08:07:20,282] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 08:07:20,282] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 08:07:20,282] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 08:07:20,291] {taskinstance.py:1107} INFO - Executing <Task(PostgresOperator): query_user_log_data> on 2021-07-08T08:07:18.435451+00:00
+[2021-07-08 08:07:20,295] {standard_task_runner.py:52} INFO - Started process 3894 to run task
+[2021-07-08 08:07:20,303] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'query_user_log_data', '2021-07-08T08:07:18.435451+00:00', '--job-id', '9', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpq8hi1nrm', '--error-file', '/tmp/tmp1iju14wa']
+[2021-07-08 08:07:20,304] {standard_task_runner.py:77} INFO - Job 9: Subtask query_user_log_data
+[2021-07-08 08:07:20,357] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.query_user_log_data 2021-07-08T08:07:18.435451+00:00 [running]> on host 60b99d043243
+[2021-07-08 08:07:20,414] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=query_user_log_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T08:07:18.435451+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T08:07:18.435451+00:00
+[2021-07-08 08:07:20,414] {postgres.py:68} INFO - Executing: 
+            SELECT * FROM user_log;
+        
+[2021-07-08 08:07:20,424] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 08:07:21,550] {dbapi.py:204} INFO - Running statement: 
+            SELECT * FROM user_log;
+        , parameters: None
+[2021-07-08 08:07:21,922] {dbapi.py:212} INFO - Rows affected: 7
+[2021-07-08 08:07:22,121] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=query_user_log_data, execution_date=20210708T080718, start_date=20210708T080720, end_date=20210708T080722
+[2021-07-08 08:07:22,154] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-07-08 08:07:22,167] {local_task_job.py:151} INFO - Task exited with return code 0

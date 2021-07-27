@@ -1,0 +1,40 @@
+[2021-07-08 11:15:41,912] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T11:15:36.639203+00:00 [queued]>
+[2021-07-08 11:15:41,932] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T11:15:36.639203+00:00 [queued]>
+[2021-07-08 11:15:41,932] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 11:15:41,932] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 11:15:41,933] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 11:15:41,944] {taskinstance.py:1107} INFO - Executing <Task(PostgresToGCSOperator): upload_users_data> on 2021-07-08T11:15:36.639203+00:00
+[2021-07-08 11:15:41,950] {standard_task_runner.py:52} INFO - Started process 9967 to run task
+[2021-07-08 11:15:41,957] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'upload_users_data', '2021-07-08T11:15:36.639203+00:00', '--job-id', '20', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpaplor64o', '--error-file', '/tmp/tmp6hfhua8h']
+[2021-07-08 11:15:41,960] {standard_task_runner.py:77} INFO - Job 20: Subtask upload_users_data
+[2021-07-08 11:15:42,041] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.upload_users_data 2021-07-08T11:15:36.639203+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 11:15:42,118] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=upload_users_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T11:15:36.639203+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T11:15:36.639203+00:00
+[2021-07-08 11:15:42,121] {sql_to_gcs.py:150} INFO - Executing query
+[2021-07-08 11:15:42,145] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 151, in execute
+    cursor = self.query()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/postgres_to_gcs.py", line 118, in query
+    conn = hook.get_conn()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/hooks/postgres.py", line 88, in get_conn
+    conn = deepcopy(self.connection or self.get_connection(conn_id))
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/hooks/base.py", line 67, in get_connection
+    conn = Connection.get_connection_from_secrets(conn_id)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/connection.py", line 381, in get_connection_from_secrets
+    raise AirflowNotFoundException(f"The conn_id `{conn_id}` isn't defined")
+airflow.exceptions.AirflowNotFoundException: The conn_id `postgres_default` isn't defined
+[2021-07-08 11:15:42,148] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=bluepi_dag, task_id=upload_users_data, execution_date=20210708T111536, start_date=20210708T111541, end_date=20210708T111542
+[2021-07-08 11:15:42,216] {local_task_job.py:151} INFO - Task exited with return code 1

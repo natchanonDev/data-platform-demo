@@ -1,0 +1,44 @@
+[2021-07-08 11:48:05,508] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T11:48:00.145019+00:00 [queued]>
+[2021-07-08 11:48:05,534] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T11:48:00.145019+00:00 [queued]>
+[2021-07-08 11:48:05,535] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 11:48:05,536] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 11:48:05,537] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 11:48:05,552] {taskinstance.py:1107} INFO - Executing <Task(PostgresToGCSOperator): upload_user_log_data> on 2021-07-08T11:48:00.145019+00:00
+[2021-07-08 11:48:05,557] {standard_task_runner.py:52} INFO - Started process 12165 to run task
+[2021-07-08 11:48:05,568] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'upload_user_log_data', '2021-07-08T11:48:00.145019+00:00', '--job-id', '59', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmp2jfjnq58', '--error-file', '/tmp/tmpfnjl30fe']
+[2021-07-08 11:48:05,573] {standard_task_runner.py:77} INFO - Job 59: Subtask upload_user_log_data
+[2021-07-08 11:48:05,634] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T11:48:00.145019+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 11:48:05,711] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=upload_user_log_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T11:48:00.145019+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T11:48:00.145019+00:00
+[2021-07-08 11:48:05,714] {sql_to_gcs.py:150} INFO - Executing query
+[2021-07-08 11:48:05,727] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 11:48:07,341] {sql_to_gcs.py:153} INFO - Writing local data files
+[2021-07-08 11:48:07,543] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 154, in execute
+    files_to_upload = self._write_local_data_files(cursor)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 185, in _write_local_data_files
+    col_type_dict = self._get_col_type_dict()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 303, in _get_col_type_dict
+    schema = json.loads(self.schema)
+  File "/usr/local/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[2021-07-08 11:48:07,547] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=bluepi_dag, task_id=upload_user_log_data, execution_date=20210708T114800, start_date=20210708T114805, end_date=20210708T114807
+[2021-07-08 11:48:07,589] {local_task_job.py:151} INFO - Task exited with return code 1

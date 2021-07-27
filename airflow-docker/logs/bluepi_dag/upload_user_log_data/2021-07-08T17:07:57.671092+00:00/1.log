@@ -1,0 +1,74 @@
+[2021-07-08 17:08:02,830] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T17:07:57.671092+00:00 [queued]>
+[2021-07-08 17:08:02,843] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T17:07:57.671092+00:00 [queued]>
+[2021-07-08 17:08:02,843] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 17:08:02,843] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 17:08:02,843] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 17:08:02,858] {taskinstance.py:1107} INFO - Executing <Task(PostgresToGCSOperator): upload_user_log_data> on 2021-07-08T17:07:57.671092+00:00
+[2021-07-08 17:08:02,863] {standard_task_runner.py:52} INFO - Started process 2968 to run task
+[2021-07-08 17:08:02,868] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'upload_user_log_data', '2021-07-08T17:07:57.671092+00:00', '--job-id', '193', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmp0omiwxu_', '--error-file', '/tmp/tmpdnnxm_v7']
+[2021-07-08 17:08:02,874] {standard_task_runner.py:77} INFO - Job 193: Subtask upload_user_log_data
+[2021-07-08 17:08:02,925] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.upload_user_log_data 2021-07-08T17:07:57.671092+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 17:08:02,980] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=upload_user_log_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T17:07:57.671092+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T17:07:57.671092+00:00
+[2021-07-08 17:08:02,981] {sql_to_gcs.py:150} INFO - Executing query
+[2021-07-08 17:08:02,992] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 17:08:04,537] {sql_to_gcs.py:153} INFO - Writing local data files
+[2021-07-08 17:08:04,730] {sql_to_gcs.py:202} INFO - Current file count: 1
+[2021-07-08 17:08:05,114] {sql_to_gcs.py:164} INFO - Uploading 1 files to GCS.
+[2021-07-08 17:08:05,226] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/impersonated_credentials.py", line 108, in _make_iam_token_request
+    token = token_response["accessToken"]
+KeyError: 'accessToken'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 165, in execute
+    self._upload_to_gcs(files_to_upload)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/transfers/sql_to_gcs.py", line 369, in _upload_to_gcs
+    gzip=self.gzip if tmp_file.get('file_name') != self.schema_filename else False,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 480, in upload
+    partial(blob.upload_from_filename, filename=filename, content_type=mime_type, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/google/cloud/hooks/gcs.py", line 441, in _call_with_retry
+    f()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/storage/blob.py", line 2643, in upload_from_filename
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/storage/blob.py", line 2502, in upload_from_file
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/storage/blob.py", line 2304, in _do_upload
+    retry=retry,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/cloud/storage/blob.py", line 1825, in _do_multipart_upload
+    transport, data, object_metadata, content_type, timeout=timeout
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/resumable_media/requests/upload.py", line 146, in transmit
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/resumable_media/requests/_request_helpers.py", line 136, in http_request
+    return _helpers.wait_and_retry(func, RequestsMixin._get_status_code, retry_strategy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/resumable_media/_helpers.py", line 177, in wait_and_retry
+    response = func()
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/transport/requests.py", line 474, in request
+    self.credentials.before_request(auth_request, method, url, request_headers)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/credentials.py", line 133, in before_request
+    self.refresh(request)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/impersonated_credentials.py", line 242, in refresh
+    self._update_token(request)
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/impersonated_credentials.py", line 273, in _update_token
+    iam_endpoint_override=self._iam_endpoint_override,
+  File "/home/airflow/.local/lib/python3.6/site-packages/google/auth/impersonated_credentials.py", line 120, in _make_iam_token_request
+    six.raise_from(new_exc, caught_exc)
+  File "<string>", line 3, in raise_from
+google.auth.exceptions.RefreshError: ('Unable to acquire impersonated credentials: No access token or invalid expiration in response.', '{\n  "error": {\n    "code": 403,\n    "message": "IAM Service Account Credentials API has not been used in project 113186240065 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/iamcredentials.googleapis.com/overview?project=113186240065 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",\n    "status": "PERMISSION_DENIED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.Help",\n        "links": [\n          {\n            "description": "Google developers console API activation",\n            "url": "https://console.developers.google.com/apis/api/iamcredentials.googleapis.com/overview?project=113186240065"\n          }\n        ]\n      },\n      {\n        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n        "reason": "SERVICE_DISABLED",\n        "domain": "googleapis.com",\n        "metadata": {\n          "service": "iamcredentials.googleapis.com",\n          "consumer": "projects/113186240065"\n        }\n      }\n    ]\n  }\n}\n')
+[2021-07-08 17:08:05,248] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=bluepi_dag, task_id=upload_user_log_data, execution_date=20210708T170757, start_date=20210708T170802, end_date=20210708T170805
+[2021-07-08 17:08:05,291] {local_task_job.py:151} INFO - Task exited with return code 1

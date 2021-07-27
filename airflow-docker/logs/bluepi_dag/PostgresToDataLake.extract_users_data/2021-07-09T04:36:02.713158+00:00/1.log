@@ -1,0 +1,28 @@
+[2021-07-09 04:36:04,895] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.PostgresToDataLake.extract_users_data 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:04,907] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.PostgresToDataLake.extract_users_data 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:04,907] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:04,907] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-09 04:36:04,907] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:04,925] {taskinstance.py:1107} INFO - Executing <Task(PostgresToGCSOperator): PostgresToDataLake.extract_users_data> on 2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:04,931] {standard_task_runner.py:52} INFO - Started process 9129 to run task
+[2021-07-09 04:36:04,937] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'PostgresToDataLake.extract_users_data', '2021-07-09T04:36:02.713158+00:00', '--job-id', '332', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpfrgr9jmq', '--error-file', '/tmp/tmpg558oy88']
+[2021-07-09 04:36:04,943] {standard_task_runner.py:77} INFO - Job 332: Subtask PostgresToDataLake.extract_users_data
+[2021-07-09 04:36:05,002] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.PostgresToDataLake.extract_users_data 2021-07-09T04:36:02.713158+00:00 [running]> on host 3cf0296804bd
+[2021-07-09 04:36:05,066] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=PostgresToDataLake.extract_users_data
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-09T04:36:02.713158+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:05,068] {sql_to_gcs.py:150} INFO - Executing query
+[2021-07-09 04:36:05,079] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-09 04:36:06,625] {sql_to_gcs.py:153} INFO - Writing local data files
+[2021-07-09 04:36:06,626] {sql_to_gcs.py:202} INFO - Current file count: 1
+[2021-07-09 04:36:06,627] {sql_to_gcs.py:164} INFO - Uploading 1 files to GCS.
+[2021-07-09 04:36:06,888] {gcs.py:485} INFO - File /tmp/tmpqth1ldkp uploaded to raw_data/users in bluepi-landing-bucket bucket
+[2021-07-09 04:36:06,889] {sql_to_gcs.py:167} INFO - Removing local files
+[2021-07-09 04:36:06,900] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=PostgresToDataLake.extract_users_data, execution_date=20210709T043602, start_date=20210709T043604, end_date=20210709T043606
+[2021-07-09 04:36:06,949] {taskinstance.py:1265} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2021-07-09 04:36:06,999] {local_task_job.py:151} INFO - Task exited with return code 0

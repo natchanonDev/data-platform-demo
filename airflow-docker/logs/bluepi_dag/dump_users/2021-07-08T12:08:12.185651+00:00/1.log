@@ -1,0 +1,45 @@
+[2021-07-08 12:08:20,129] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.dump_users 2021-07-08T12:08:12.185651+00:00 [queued]>
+[2021-07-08 12:08:20,151] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.dump_users 2021-07-08T12:08:12.185651+00:00 [queued]>
+[2021-07-08 12:08:20,151] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 12:08:20,151] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 12:08:20,151] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 12:08:20,161] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): dump_users> on 2021-07-08T12:08:12.185651+00:00
+[2021-07-08 12:08:20,167] {standard_task_runner.py:52} INFO - Started process 13509 to run task
+[2021-07-08 12:08:20,174] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'dump_users', '2021-07-08T12:08:12.185651+00:00', '--job-id', '73', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpkfbxy1cz', '--error-file', '/tmp/tmpvem2v5_5']
+[2021-07-08 12:08:20,178] {standard_task_runner.py:77} INFO - Job 73: Subtask dump_users
+[2021-07-08 12:08:20,239] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.dump_users 2021-07-08T12:08:12.185651+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 12:08:20,302] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=dump_users
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T12:08:12.185651+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T12:08:12.185651+00:00
+[2021-07-08 12:08:20,320] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 12:08:21,499] {taskinstance.py:1501} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1157, in _run_raw_task
+    self._prepare_and_execute_task_with_callbacks(context, task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1331, in _prepare_and_execute_task_with_callbacks
+    result = self._execute_task(context, task_copy)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1361, in _execute_task
+    result = task_copy.execute(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 150, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 161, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/bluepi_dag.py", line 34, in _dump_data
+    pg_hook.bulk_dump(table, f'{DAGS_FOLDER}/{table}_export')
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/hooks/postgres.py", line 146, in bulk_dump
+    self.copy_expert(f"COPY {table} TO STDOUT", tmp_file)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/hooks/postgres.py", line 134, in copy_expert
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/providers/postgres/hooks/postgres.py", line 115, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.6/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "breakfast" does not exist
+
+[2021-07-08 12:08:21,501] {taskinstance.py:1551} INFO - Marking task as FAILED. dag_id=bluepi_dag, task_id=dump_users, execution_date=20210708T120812, start_date=20210708T120820, end_date=20210708T120821
+[2021-07-08 12:08:21,562] {local_task_job.py:151} INFO - Task exited with return code 1

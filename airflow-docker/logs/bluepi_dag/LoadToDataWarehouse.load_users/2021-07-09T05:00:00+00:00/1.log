@@ -1,0 +1,27 @@
+[2021-07-09 06:06:23,478] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.LoadToDataWarehouse.load_users 2021-07-09T05:00:00+00:00 [queued]>
+[2021-07-09 06:06:23,490] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.LoadToDataWarehouse.load_users 2021-07-09T05:00:00+00:00 [queued]>
+[2021-07-09 06:06:23,490] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 06:06:23,491] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-09 06:06:23,491] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 06:06:23,507] {taskinstance.py:1107} INFO - Executing <Task(GCSToBigQueryOperator): LoadToDataWarehouse.load_users> on 2021-07-09T05:00:00+00:00
+[2021-07-09 06:06:23,512] {standard_task_runner.py:52} INFO - Started process 14993 to run task
+[2021-07-09 06:06:23,520] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'LoadToDataWarehouse.load_users', '2021-07-09T05:00:00+00:00', '--job-id', '350', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpeaosw8ef', '--error-file', '/tmp/tmpu9cnsb4r']
+[2021-07-09 06:06:23,528] {standard_task_runner.py:77} INFO - Job 350: Subtask LoadToDataWarehouse.load_users
+[2021-07-09 06:06:23,582] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.LoadToDataWarehouse.load_users 2021-07-09T05:00:00+00:00 [running]> on host 3cf0296804bd
+[2021-07-09 06:06:23,647] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=LoadToDataWarehouse.load_users
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-09T05:00:00+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-07-09T05:00:00+00:00
+[2021-07-09 06:06:23,654] {logging_mixin.py:104} WARNING - /home/***/.local/lib/python3.6/site-packages/***/providers/google/cloud/transfers/gcs_to_bigquery.py:264 DeprecationWarning: The bigquery_conn_id parameter has been deprecated. You should pass the gcp_conn_id parameter.
+[2021-07-09 06:06:23,668] {logging_mixin.py:104} WARNING - /home/***/.local/lib/python3.6/site-packages/***/providers/google/cloud/hooks/bigquery.py:142 DeprecationWarning: This method will be deprecated. Please use `BigQueryHook.get_client` method
+[2021-07-09 06:06:23,780] {logging_mixin.py:104} WARNING - /home/***/.local/lib/python3.6/site-packages/***/models/taskinstance.py:1361 DeprecationWarning: This method is deprecated. Please use `***.providers.google.cloud.hooks.bigquery.BigQueryHook.run_load`
+[2021-07-09 06:06:23,781] {logging_mixin.py:104} WARNING - /home/***/.local/lib/python3.6/site-packages/***/providers/google/cloud/hooks/bigquery.py:1774 DeprecationWarning: This method is deprecated. Please use `BigQueryHook.insert_job` method.
+[2021-07-09 06:06:23,782] {bigquery.py:3013} INFO - Project not included in destination_project_dataset_table: bluepi_dataset.users; using project "exam-de-natchanon"
+[2021-07-09 06:06:23,783] {bigquery.py:1639} INFO - Inserting job ***_1625810783782363_2545dcb583425e0dd487b957a401eec7
+[2021-07-09 06:06:27,648] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=LoadToDataWarehouse.load_users, execution_date=20210709T050000, start_date=20210709T060623, end_date=20210709T060627
+[2021-07-09 06:06:27,702] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-07-09 06:06:27,714] {local_task_job.py:151} INFO - Task exited with return code 0

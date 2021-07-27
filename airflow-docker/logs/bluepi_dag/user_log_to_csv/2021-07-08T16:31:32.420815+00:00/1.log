@@ -1,0 +1,22 @@
+[2021-07-08 16:31:47,203] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.user_log_to_csv 2021-07-08T16:31:32.420815+00:00 [queued]>
+[2021-07-08 16:31:47,215] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.user_log_to_csv 2021-07-08T16:31:32.420815+00:00 [queued]>
+[2021-07-08 16:31:47,215] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 16:31:47,215] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 16:31:47,216] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 16:31:47,229] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): user_log_to_csv> on 2021-07-08T16:31:32.420815+00:00
+[2021-07-08 16:31:47,238] {standard_task_runner.py:52} INFO - Started process 532 to run task
+[2021-07-08 16:31:47,245] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'user_log_to_csv', '2021-07-08T16:31:32.420815+00:00', '--job-id', '168', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmppyf2a63o', '--error-file', '/tmp/tmpl2yp_apv']
+[2021-07-08 16:31:47,254] {standard_task_runner.py:77} INFO - Job 168: Subtask user_log_to_csv
+[2021-07-08 16:31:47,314] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.user_log_to_csv 2021-07-08T16:31:32.420815+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 16:31:47,414] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=user_log_to_csv
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T16:31:32.420815+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T16:31:32.420815+00:00
+[2021-07-08 16:31:47,568] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-08 16:31:47,581] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=user_log_to_csv, execution_date=20210708T163132, start_date=20210708T163147, end_date=20210708T163147
+[2021-07-08 16:31:47,610] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-07-08 16:31:47,656] {local_task_job.py:151} INFO - Task exited with return code 0

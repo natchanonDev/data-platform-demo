@@ -1,0 +1,39 @@
+[2021-07-09 04:36:10,199] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.Transformation.transform_user_log 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:10,214] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.Transformation.transform_user_log 2021-07-09T04:36:02.713158+00:00 [queued]>
+[2021-07-09 04:36:10,215] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:10,216] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-09 04:36:10,216] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-09 04:36:10,232] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): Transformation.transform_user_log> on 2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:10,237] {standard_task_runner.py:52} INFO - Started process 9152 to run task
+[2021-07-09 04:36:10,244] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'Transformation.transform_user_log', '2021-07-09T04:36:02.713158+00:00', '--job-id', '336', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmp8seghsjx', '--error-file', '/tmp/tmpxicwvl1v']
+[2021-07-09 04:36:10,251] {standard_task_runner.py:77} INFO - Job 336: Subtask Transformation.transform_user_log
+[2021-07-09 04:36:10,307] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.Transformation.transform_user_log 2021-07-09T04:36:02.713158+00:00 [running]> on host 3cf0296804bd
+[2021-07-09 04:36:10,396] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=Transformation.transform_user_log
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-09T04:36:02.713158+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-09T04:36:02.713158+00:00
+[2021-07-09 04:36:10,508] {logging_mixin.py:104} INFO -             action  ...                               user_id
+0            login  ...  55514cf0-3026-404f-8ea3-f41b00bdf6b5
+1            login  ...  55514cf0-3026-404f-8ea3-f41b00bdf6b5
+2  change password  ...  55514cf0-3026-404f-8ea3-f41b00bdf6b5
+3            login  ...  55514cf0-3026-404f-8ea3-f41b00bdf6b5
+4            login  ...  d0e73a35-ff6a-4f64-89b4-ed2b813782a3
+5           logout  ...  d0e73a35-ff6a-4f64-89b4-ed2b813782a3
+6  change password  ...  55514cf0-3026-404f-8ea3-f41b00bdf6b5
+
+[7 rows x 6 columns]
+[2021-07-09 04:36:10,511] {logging_mixin.py:104} INFO - action                object
+created_at    datetime64[ns]
+id                    object
+success                 bool
+updated_at    datetime64[ns]
+user_id               object
+dtype: object
+[2021-07-09 04:36:10,515] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-09 04:36:10,526] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=Transformation.transform_user_log, execution_date=20210709T043602, start_date=20210709T043610, end_date=20210709T043610
+[2021-07-09 04:36:10,570] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-07-09 04:36:10,621] {local_task_job.py:151} INFO - Task exited with return code 0

@@ -1,0 +1,23 @@
+[2021-07-08 13:25:19,609] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.dump_users 2021-07-08T13:25:11.159993+00:00 [queued]>
+[2021-07-08 13:25:19,646] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.dump_users 2021-07-08T13:25:11.159993+00:00 [queued]>
+[2021-07-08 13:25:19,647] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 13:25:19,647] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 13:25:19,647] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 13:25:19,669] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): dump_users> on 2021-07-08T13:25:11.159993+00:00
+[2021-07-08 13:25:19,682] {standard_task_runner.py:52} INFO - Started process 18653 to run task
+[2021-07-08 13:25:19,696] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'dump_users', '2021-07-08T13:25:11.159993+00:00', '--job-id', '138', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmpuxg2ux54', '--error-file', '/tmp/tmprzeiek1x']
+[2021-07-08 13:25:19,706] {standard_task_runner.py:77} INFO - Job 138: Subtask dump_users
+[2021-07-08 13:25:19,778] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.dump_users 2021-07-08T13:25:11.159993+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 13:25:19,862] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=dump_users
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T13:25:11.159993+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T13:25:11.159993+00:00
+[2021-07-08 13:25:19,885] {base.py:78} INFO - Using connection to: id: my_postgres_conn. Host: 35.247.174.171, Port: 5432, Schema: postgres, Login: exam, Password: ***, extra: {}
+[2021-07-08 13:25:21,632] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-08 13:25:21,648] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=dump_users, execution_date=20210708T132511, start_date=20210708T132519, end_date=20210708T132521
+[2021-07-08 13:25:21,696] {taskinstance.py:1265} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2021-07-08 13:25:21,718] {local_task_job.py:151} INFO - Task exited with return code 0

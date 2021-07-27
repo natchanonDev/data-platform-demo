@@ -1,0 +1,26 @@
+[2021-07-08 17:23:35,733] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_to_GCS 2021-07-08T17:23:20.410670+00:00 [queued]>
+[2021-07-08 17:23:35,767] {taskinstance.py:896} INFO - Dependencies all met for <TaskInstance: bluepi_dag.upload_users_to_GCS 2021-07-08T17:23:20.410670+00:00 [queued]>
+[2021-07-08 17:23:35,767] {taskinstance.py:1087} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 17:23:35,768] {taskinstance.py:1088} INFO - Starting attempt 1 of 1
+[2021-07-08 17:23:35,768] {taskinstance.py:1089} INFO - 
+--------------------------------------------------------------------------------
+[2021-07-08 17:23:35,786] {taskinstance.py:1107} INFO - Executing <Task(PythonOperator): upload_users_to_GCS> on 2021-07-08T17:23:20.410670+00:00
+[2021-07-08 17:23:35,807] {standard_task_runner.py:52} INFO - Started process 653 to run task
+[2021-07-08 17:23:35,818] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'bluepi_dag', 'upload_users_to_GCS', '2021-07-08T17:23:20.410670+00:00', '--job-id', '222', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/bluepi_dag.py', '--cfg-path', '/tmp/tmp4xgf0jrl', '--error-file', '/tmp/tmpi4ykeibw']
+[2021-07-08 17:23:35,824] {standard_task_runner.py:77} INFO - Job 222: Subtask upload_users_to_GCS
+[2021-07-08 17:23:35,933] {logging_mixin.py:104} INFO - Running <TaskInstance: bluepi_dag.upload_users_to_GCS 2021-07-08T17:23:20.410670+00:00 [running]> on host 3cf0296804bd
+[2021-07-08 17:23:36,023] {taskinstance.py:1302} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=natchanon
+AIRFLOW_CTX_DAG_ID=bluepi_dag
+AIRFLOW_CTX_TASK_ID=upload_users_to_GCS
+AIRFLOW_CTX_EXECUTION_DATE=2021-07-08T17:23:20.410670+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2021-07-08T17:23:20.410670+00:00
+[2021-07-08 17:23:36,026] {logging_mixin.py:104} INFO - exam-de-natchanon
+[2021-07-08 17:23:36,026] {logging_mixin.py:104} INFO - gs://bluepi-landing-bucket
+[2021-07-08 17:23:36,026] {logging_mixin.py:104} INFO - /opt/***/dags/users_export_cleaned.csv
+[2021-07-08 17:23:36,174] {logging_mixin.py:104} INFO - File /opt/***/dags/users_export_cleaned.csv uploaded to users_export_cleaned.csv.
+[2021-07-08 17:23:36,174] {python.py:151} INFO - Done. Returned value was: None
+[2021-07-08 17:23:36,185] {taskinstance.py:1211} INFO - Marking task as SUCCESS. dag_id=bluepi_dag, task_id=upload_users_to_GCS, execution_date=20210708T172320, start_date=20210708T172335, end_date=20210708T172336
+[2021-07-08 17:23:36,218] {taskinstance.py:1265} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2021-07-08 17:23:36,267] {local_task_job.py:151} INFO - Task exited with return code 0
